@@ -10,10 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MentalhealthApp2">
         <activity
-            android:parentActivityName=".MainActivity"
+            android:name=".HelpOptions"
+            android:exported="true" />
+        <activity
+            android:name=".TrendsActivity"
+            android:exported="true" />
+        <activity
             android:name=".SettingsActivity"
             android:exported="true"
-            android:label="@string/title_activity_settings" />
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
