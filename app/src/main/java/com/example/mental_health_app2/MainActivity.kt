@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.SeekBar
+import com.google.android.material.slider.Slider
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,13 +30,16 @@ class MainActivity : AppCompatActivity() {
 
         }
         val SadButton = findViewById<Button>(R.id.Sad1Button)
+        val slider= findViewById<Slider>(R.id.HappySlider)
         SadButton?.setOnClickListener(){
+            val SliderValue= slider.value
             val intent= Intent(this,HelpOptions::class.java)
+            intent.putExtra("sliderValue",SliderValue);
+            println(SliderValue)
             startActivity(intent)
             finish()
 
         }
-
 
 
 
