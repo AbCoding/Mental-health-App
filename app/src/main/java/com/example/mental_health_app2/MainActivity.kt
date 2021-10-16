@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         SadButton?.setOnClickListener(){
             val SliderValue= slider.value
             val intent= Intent(this,HelpOptions::class.java)
-            intent.putExtra("sliderValue",SliderValue);
-            println(SliderValue)
+            intent.putExtra("sliderValue",SliderValue)
+
             startActivity(intent)
             finish()
 
