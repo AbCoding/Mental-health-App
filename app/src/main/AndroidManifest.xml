@@ -11,6 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MentalhealthApp2">
         <activity
+            android:name=".option1"
+            android:exported="true"
+            android:label="@string/title_activity_option1"
+            android:theme="@style/Theme.MentalhealthApp2.NoActionBar" />
+        <activity
             android:name=".HelpOptions"
             android:exported="true" />
         <activity
