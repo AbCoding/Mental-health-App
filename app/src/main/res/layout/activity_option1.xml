@@ -7,15 +7,39 @@
     tools:context=".option1">
 
     <TextView
-        android:id="@+id/siggapigga"
+        android:id="@+id/option1text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="siggapigga"
+        android:fontFamily="cursive"
+        android:text="option1text"
+        android:textColor="#000000"
+        android:textSize="50sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.717" />
+        app:layout_constraintVertical_bias="0.137" />
+
+    <Button
+        android:id="@+id/Option1Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/diary"
+        android:layout_width="426dp"
+        android:layout_height="264dp"
+        android:layout_marginBottom="72dp"
+        android:hint="Write problems"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
