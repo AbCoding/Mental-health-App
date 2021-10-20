@@ -8,8 +8,7 @@ import android.provider.BaseColumns
 class DBHelper(context: Context) : SQLiteOpenHelper(context,"UserHappiness",null,1) {
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL("CREATE TABLE USERHAPPINESS(DAY INTEGER PRIMARY KEY,HAPPINESS REAL,OPTION INTEGER, DIARY TEXT )")
-        db?.execSQL("INSERT INTO USERHAPPINESS(DAY, HAPPINESS, OPTION, DIARY) VALUES(10,1.12,12,'hello')")
-        db?.execSQL("INSERT INTO USERHAPPINESS(DAY, HAPPINESS, OPTION, DIARY) VALUES(90,3.12,32,'hoo3131llo')")
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

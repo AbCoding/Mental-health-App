@@ -20,12 +20,16 @@ class HelpOptions : AppCompatActivity() {
         var db = MyHelper.readableDatabase
         val cal = Calendar.getInstance()
         val doy = cal[Calendar.DAY_OF_YEAR]
-        var cv = ContentValues()
-        cv.put("DAY", doy)
-        cv.put("HAPPINESS", sliderValue)
-        cv.put("OPTION", option)
-        cv.put("DIARY", "hellwewewo")
-        db.insert("USERHAPPINESS", null, cv)
+        var cv = MyHelper.makeCv(sliderValue!!,1,"None")
+        var tempRowNumber= MyHelper.FindRow(doy)
+
+            cv.put("DAY",doy)
+            db.insert("USERHAPPINESS",null,cv)
+
+
+
+
+
         val Back = findViewById<Button>(R.id.SadBack)
         Back?.setOnClickListener() {
             val intent = Intent(this, MainActivity::class.java)
@@ -132,14 +136,19 @@ class HelpOptions : AppCompatActivity() {
 
             option1.add(templist1.random())
             SafeDeleteStr(templist1, option1[2])
-            println(option1)
+
 
 
             var Option1Button = findViewById<Button>(R.id.hi)
             Option1Button?.setOnClickListener() {
                 val Options = option1[0]
+                val OptionsIndex= arrwords.indexOf(option1[0])
                 val intent = Intent(this, com.example.mental_health_app2.option1::class.java)
-                intent.putExtra("Options", Options);
+                intent.putExtra("Options", Options)
+                intent.putExtra("happy", sliderValue)
+                intent.putExtra("DOY", doy)
+                intent.putExtra("OpIndex", OptionsIndex)
+
                 startActivity(intent)
                 finish()
             }
@@ -147,8 +156,12 @@ class HelpOptions : AppCompatActivity() {
             var Option2Button = findViewById<Button>(R.id.option2button)
             Option2Button?.setOnClickListener() {
                 val Options = option1[1]
+                val OptionsIndex= arrwords.indexOf(option1[1])
                 val intent = Intent(this, com.example.mental_health_app2.option1::class.java)
-                intent.putExtra("Options", Options);
+                intent.putExtra("Options", Options)
+                intent.putExtra("happy", sliderValue)
+                intent.putExtra("DOY", doy)
+                intent.putExtra("OpIndex", OptionsIndex)
                 startActivity(intent)
                 finish()
             }
@@ -156,8 +169,12 @@ class HelpOptions : AppCompatActivity() {
             var Option3Button = findViewById<Button>(R.id.Option3button)
             Option3Button?.setOnClickListener() {
                 val Options = option1[2]
+                val OptionsIndex= arrwords.indexOf(option1[2])
                 val intent = Intent(this, com.example.mental_health_app2.option1::class.java)
-                intent.putExtra("Options", Options);
+                intent.putExtra("Options", Options)
+                intent.putExtra("happy", sliderValue)
+                intent.putExtra("DOY", doy)
+                intent.putExtra("OpIndex", OptionsIndex)
                 startActivity(intent)
                 finish()
             }
