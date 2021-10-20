@@ -7,6 +7,7 @@ import android.widget.Button
 
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class option1 : AppCompatActivity() {
@@ -17,7 +18,7 @@ class option1 : AppCompatActivity() {
         val extras = intent.extras
         val Options = extras?.getString("Options")
         option1text.setText(Options)
-
+        val DiaryEntry = findViewById<TextInputEditText>(R.id.diary)
 
 
         val Back = findViewById<Button>(R.id.Option1Back)
