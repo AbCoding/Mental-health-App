@@ -15,17 +15,21 @@ class HelpOptions : AppCompatActivity() {
         val text= findViewById<TextView>(R.id.SadV)
         val extras = intent.extras
         val sliderValue= extras?.getFloat("sliderValue")
-        val option=13
+        val option=156
         var MyHelper= DBHelper(applicationContext)
         var db= MyHelper.readableDatabase
         val cal = Calendar.getInstance()
         val doy = cal[Calendar.DAY_OF_YEAR]
-        var cv= ContentValues()
-        cv.put("DAY",doy )
-        cv.put("HAPPINESS",sliderValue )
-        cv.put("OPTION",option )
-        cv.put("DIARY","hellwewewo" )
-        db.insert("USERHAPPINESS",null,cv)
+        var cv = MyHelper.makeCv(sliderValue!!,option,"rigga")
+        var tempRowNumber= MyHelper.FindRow(doy)
+        if( tempRowNumber == null){
+            cv.put("DAY",doy)
+            db.insert("USERHAPPINESS",null,cv)
+        }
+        else{
+            MyHelper.UpdateByDay(doy,cv)
+        }
+
         val Back = findViewById<Button>(R.id.SadBack)
         Back?.setOnClickListener(){
             val intent= Intent(this,MainActivity::class.java)
@@ -38,6 +42,7 @@ class HelpOptions : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
 
             fun SafeDeleteStr(arr: MutableList<String>,arg:String){
                 if(arr.size > 1){
@@ -77,10 +82,11 @@ class HelpOptions : AppCompatActivity() {
 
                 option1.add(templist1.random())
                 SafeDeleteStr(templist1,option1[2])
-
+                Option1Button.setText(option1[0])
 
 
             }
+
         if (sliderValue != null) {
             outF(sliderValue)
         }
