@@ -1,13 +1,13 @@
 package com.example.mental_health_app2
 
 import android.content.Intent
+import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
 import android.widget.TextView
 import android.widget.Toast
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class option1 : AppCompatActivity() {
@@ -16,9 +16,21 @@ class option1 : AppCompatActivity() {
         setContentView(R.layout.activity_option1)
         val option1text = findViewById<TextView>(R.id.option1text)
         val extras = intent.extras
+        val OptionIndex= extras?.getInt("OpIndex")
         val Options = extras?.getString("Options")
+        val sliderValue = extras?.getFloat("happy")
+        val doy = extras?.getInt("DOY")
         option1text.setText(Options)
-        val DiaryEntry = findViewById<TextInputEditText>(R.id.diary)
+        var MyHelper = DBHelper(applicationContext)
+        var db = MyHelper.readableDatabase
+        var cv = MyHelper.makeCv(sliderValue!!, OptionIndex!!,"None")
+
+
+
+        MyHelper.UpdateByDay(doy!!,cv)
+
+
+
 
 
         val Back = findViewById<Button>(R.id.Option1Back)
