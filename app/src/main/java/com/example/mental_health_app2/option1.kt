@@ -28,7 +28,7 @@ class option1 : AppCompatActivity() {
 
 
         MyHelper.UpdateByDay(doy!!,cv)
-
+        println(12)
 
 
 
