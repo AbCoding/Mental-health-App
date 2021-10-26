@@ -1,18 +1,20 @@
 package com.example.mental_health_app2
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 
 class HelpOptions : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_help_options)
         //val text = findViewById<TextView>(R.id.SadV)
+
+
+
         val extras = intent.extras
         val sliderValue = extras?.getFloat("sliderValue")
         val option = 13
@@ -20,14 +22,11 @@ class HelpOptions : AppCompatActivity() {
         var db = MyHelper.readableDatabase
         val cal = Calendar.getInstance()
         val doy = cal[Calendar.DAY_OF_YEAR]
-        var cv = MyHelper.makeCv(sliderValue!!,1,"None")
-        var tempRowNumber= MyHelper.FindRow(doy)
+        var cv = MyHelper.makeCv(sliderValue!!, 1, "None")
+        var tempRowNumber = MyHelper.FindRow(doy)
 
-            cv.put("DAY",doy)
-            db.insert("USERHAPPINESS",null,cv)
-
-
-
+        cv.put("DAY", doy)
+        db.insert("USERHAPPINESS", null, cv)
 
 
         val Back = findViewById<Button>(R.id.SadBack)
@@ -45,7 +44,61 @@ class HelpOptions : AppCompatActivity() {
         }
 
         fun outF(feel: Float) {
-            val arr = mutableListOf(0.1,0.2,0.2,0.3,0.3,0.4,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0,3.1,3.2,3.3,3.4,3.5,3.6,3.7,3.8,3.9,4.0,4.1,4.2,4.3,4.4,4.5,4.6,4.7,4.8,4.9,5.0)
+            val arr = mutableListOf(
+                0.1,
+                0.2,
+                0.2,
+                0.3,
+                0.3,
+                0.4,
+                0.4,
+                0.5,
+                0.6,
+                0.7,
+                0.8,
+                0.9,
+                1.0,
+                1.1,
+                1.2,
+                1.3,
+                1.4,
+                1.5,
+                1.6,
+                1.7,
+                1.8,
+                1.9,
+                2.0,
+                2.1,
+                2.2,
+                2.3,
+                2.4,
+                2.5,
+                2.6,
+                2.7,
+                2.8,
+                2.9,
+                3.0,
+                3.1,
+                3.2,
+                3.3,
+                3.4,
+                3.5,
+                3.6,
+                3.7,
+                3.8,
+                3.9,
+                4.0,
+                4.1,
+                4.2,
+                4.3,
+                4.4,
+                4.5,
+                4.6,
+                4.7,
+                4.8,
+                4.9,
+                5.0
+            )
             val arrwords = mutableListOf(
                 "Remember to go to sleep on time, don't stay up.",
                 "Make sure to eat something to keep you going today.",
@@ -138,11 +191,10 @@ class HelpOptions : AppCompatActivity() {
             SafeDeleteStr(templist1, option1[2])
 
 
-
             var Option1Button = findViewById<Button>(R.id.hi)
             Option1Button?.setOnClickListener() {
                 val Options = option1[0]
-                val OptionsIndex= arrwords.indexOf(option1[0])
+                val OptionsIndex = arrwords.indexOf(option1[0])
                 val intent = Intent(this, com.example.mental_health_app2.option1::class.java)
                 intent.putExtra("Options", Options)
                 intent.putExtra("happy", sliderValue)
@@ -156,7 +208,7 @@ class HelpOptions : AppCompatActivity() {
             var Option2Button = findViewById<Button>(R.id.option2button)
             Option2Button?.setOnClickListener() {
                 val Options = option1[1]
-                val OptionsIndex= arrwords.indexOf(option1[1])
+                val OptionsIndex = arrwords.indexOf(option1[1])
                 val intent = Intent(this, com.example.mental_health_app2.option1::class.java)
                 intent.putExtra("Options", Options)
                 intent.putExtra("happy", sliderValue)
@@ -169,7 +221,7 @@ class HelpOptions : AppCompatActivity() {
             var Option3Button = findViewById<Button>(R.id.Option3button)
             Option3Button?.setOnClickListener() {
                 val Options = option1[2]
-                val OptionsIndex= arrwords.indexOf(option1[2])
+                val OptionsIndex = arrwords.indexOf(option1[2])
                 val intent = Intent(this, com.example.mental_health_app2.option1::class.java)
                 intent.putExtra("Options", Options)
                 intent.putExtra("happy", sliderValue)
@@ -178,17 +230,21 @@ class HelpOptions : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
-                Option1Button.setText(option1[0])
-                Option2Button.setText(option1[1])
-                Option3Button.setText(option1[2])
+            Option1Button.setText(option1[0])
+            Option2Button.setText(option1[1])
+            Option3Button.setText(option1[2])
 
-
-            }
-            if (sliderValue != null) {
-                outF(sliderValue)
-            }
 
 
         }
+        if (sliderValue != null) {
+            outF(sliderValue)
+        }
+
 
     }
+
+
+
+
+}
