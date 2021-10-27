@@ -31,13 +31,13 @@ class option1 : AppCompatActivity() {
         println(12)
 
 
-
-
         val Back = findViewById<Button>(R.id.Option1Back)
         Back?.setOnClickListener() {
-            val intent = Intent(this, HelpOptions::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
+
+
 
 
     }

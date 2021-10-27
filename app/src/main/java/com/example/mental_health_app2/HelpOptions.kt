@@ -1,5 +1,6 @@
 package com.example.mental_health_app2
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.icu.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
@@ -7,13 +8,15 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import kotlin.random.Random
 
 class HelpOptions : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_help_options)
         //val text = findViewById<TextView>(R.id.SadV)
+
+
+
         val extras = intent.extras
         val sliderValue = extras?.getFloat("sliderValue")
         val option = 13
@@ -179,17 +182,21 @@ class HelpOptions : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
-                Option1Button.setText(option1[0])
-                Option2Button.setText(option1[1])
-                Option3Button.setText(option1[2])
+            Option1Button.setText(option1[0])
+            Option2Button.setText(option1[1])
+            Option3Button.setText(option1[2])
 
-
-            }
-            if (sliderValue != null) {
-                outF(sliderValue)
-            }
 
 
         }
+        if (sliderValue != null) {
+            outF(sliderValue)
+        }
+
 
     }
+
+
+
+
+}

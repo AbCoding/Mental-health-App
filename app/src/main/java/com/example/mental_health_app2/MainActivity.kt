@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         val SettingButton = findViewById<Button>(R.id.settingsButton)
         SettingButton?.setOnClickListener(){
-            val intent= Intent(this,SettingsActivity::class.java)
+            val intent= Intent(this,settingspage::class.java)
             startActivity(intent)
 
 
