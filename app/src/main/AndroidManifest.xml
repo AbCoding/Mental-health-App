@@ -10,23 +10,31 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MentalhealthApp2">
+        android:theme="@style/Theme.MentalhealthApp2.NoActionBar">
         <activity
             android:name=".settingspage"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/app_name"/>
+
         <activity
             android:name=".option1"
             android:exported="true"
-            android:label="@string/title_activity_option1"
-            android:theme="@style/Theme.MentalhealthApp2.NoActionBar" />
+            android:label="@string/app_name"
+            />
         <activity
             android:name=".HelpOptions"
+            android:label="@string/app_name"
             android:exported="true" />
         <activity
             android:name=".TrendsActivity"
-            android:exported="true" />
+            android:label="@string/app_name"
+            android:exported="true"
+
+            android:banner="@color/ButtonBackgroud"/>
         <activity
             android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:banner="@color/ButtonBackgroud"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

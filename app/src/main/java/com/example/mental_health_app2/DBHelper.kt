@@ -9,12 +9,16 @@ import kotlin.random.Random
 class DBHelper(context: Context) : SQLiteOpenHelper(context,"UserHappiness",null,1) {
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL("CREATE TABLE USERHAPPINESS(DAY INTEGER PRIMARY KEY,HAPPINESS REAL,OPTION INTEGER, DIARY TEXT )")
+
         for(i in 1..365){
-        var cv= makeCv(Random.nextFloat()*5, Random.nextInt(0,70),"Car")
+            var j =i/100
+            var cv= makeCv(Random.nextFloat()*(5-j)+j, Random.nextInt(0,70),"I had a good day, I ate a grilled chicken sandwhich. I went outside and talked to my friends. I did my chores and worked on my homework.")
             cv.put("DAY",i)
 
             db!!.insert("USERHAPPINESS",null,cv)
         }
+
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

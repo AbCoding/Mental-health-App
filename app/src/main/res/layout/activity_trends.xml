@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
+    android:theme="@android:style/Theme.Light"
+
     tools:context=".TrendsActivity">
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/LineChart1"
-        android:layout_width="390dp"
-        android:layout_height="500dp"
+        android:layout_width="395dp"
+        android:layout_height="328dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go Back"
+        android:backgroundTint="@color/ButtonBackgroud1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.006"
@@ -44,8 +48,8 @@
 
         <RadioButton
             android:id="@+id/year"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="112dp"
+            android:layout_height="75dp"
             android:padding="10dp"
             android:text="Yearly View"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -57,8 +61,8 @@
 
         <RadioButton
             android:id="@+id/month"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="119dp"
+            android:layout_height="86dp"
             android:padding="10dp"
             android:text="Monthly View"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -71,8 +75,8 @@
 
         <RadioButton
             android:id="@+id/week"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="118dp"
+            android:layout_height="79dp"
             android:padding="10dp"
             android:text="Weekly View"
             app:layout_constraintBottom_toBottomOf="parent"

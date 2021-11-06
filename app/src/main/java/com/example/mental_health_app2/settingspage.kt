@@ -12,15 +12,15 @@ class settingspage : AppCompatActivity() {
         setContentView(R.layout.activity_settingspage)
         //val et_text = findViewById<EditText>(R.id.et_text)
         //val tv_text = findViewById<TextView>(R.id.tv_text)
-        val sw_switch = findViewById<Switch>(R.id.sw_switch)
+        val DarkMode = findViewById<CheckBox>(R.id.DarkMode)
         val audio = findViewById<CheckBox>(R.id.muteaudio)
         val notificationz = findViewById<CheckBox>(R.id.Dailynotifications)
 
-        loadData(sw_switch,audio,notificationz)
+        loadData(DarkMode,audio,notificationz)
 
         val bt_button = findViewById<Button>(R.id.bt_button)
         bt_button.setOnClickListener{
-            saveData(sw_switch,audio,notificationz)
+            saveData(DarkMode,audio,notificationz)
 
         }
         val Back = findViewById<Button>(R.id.back_button)
@@ -33,7 +33,7 @@ class settingspage : AppCompatActivity() {
     }
 
 
-    private fun saveData(sw_switch:Switch,audio:CheckBox,notificationz:CheckBox) {
+    private fun saveData(DarkMode:CheckBox,audio:CheckBox,notificationz:CheckBox) {
         //val insertedText = et_text.text.toString()
         //tv_text.text = insertedText
 
@@ -41,7 +41,7 @@ class settingspage : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         editor.apply{
             //putString("STRING_KEY",insertedText)
-            putBoolean("BOOLEAN_KEY",sw_switch.isChecked)
+            putBoolean("BOOLEAN_KEY",DarkMode.isChecked)
             putBoolean("BOOLEAN_KEY1",audio.isChecked)
             putBoolean("BOOLEAN_KEY2",notificationz.isChecked)
         }.apply()
@@ -50,7 +50,7 @@ class settingspage : AppCompatActivity() {
 
     }
 
-    private fun loadData(sw_switch:Switch,audio:CheckBox,notificationz:CheckBox){
+    private fun loadData(DarkMode: CheckBox,audio:CheckBox,notificationz:CheckBox){
         val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
         //val savedString = sharedPreferences.getString("STRING_KEY", null)
         val savedBoolean = sharedPreferences.getBoolean("BOOLEAN_KEY",false)
@@ -58,7 +58,7 @@ class settingspage : AppCompatActivity() {
         val savedBoolean2 = sharedPreferences.getBoolean("BOOLEAN_KEY2",false)
 
         //tv_text.text = savedString
-        sw_switch.isChecked = savedBoolean
+        DarkMode.isChecked = savedBoolean
         audio.isChecked = savedBoolean1
         notificationz.isChecked = savedBoolean2
     }

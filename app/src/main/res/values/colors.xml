@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="SliderTrack">#CCEFFF</color>
+    <color name="SliderTrackActive">#0091D5</color>
+    <color name="SliderThumb">#287BA1</color>
+    <color name="ButtonBackgroud">#21A3BA</color>
+    <color name="ButtonBackgroud1">#007FA5</color>
 </resources>

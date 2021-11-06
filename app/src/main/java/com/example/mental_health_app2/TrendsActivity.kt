@@ -69,22 +69,9 @@ class TrendsActivity : AppCompatActivity() {
         lc.axisLeft.setLabelCount(5)
         lc.xAxis.axisMinimum=0.75F
         lc.axisLeft.textSize=20F
-        val mths= ArrayList<String>()
 
-        mths.add("January")
-        mths.add("February")
-        mths.add("March")
-        mths.add("April")
-        mths.add("May")
-        mths.add("June")
-        mths.add("July")
-        mths.add("August")
-        mths.add("September")
-        mths.add("October")
-        mths.add("November")
-        mths.add("December")
         //sets the data vars for the graph
-        var LineWidth= 2.5F
+        var LineWidth= 5F
         var lineEntry= ArrayList<Entry>()
         var xAxis = lc.xAxis
         var xValues= ArrayList<String>()
@@ -113,7 +100,7 @@ class TrendsActivity : AppCompatActivity() {
 
         // year view
         for(i in 1..DayList.size-1){
-            var CurrentIndex = CurrentEntry - i
+            var CurrentIndex =  i
 
             var currentH = HappinessValueList[CurrentIndex]
             sm = (sm+currentH)
@@ -184,13 +171,13 @@ class TrendsActivity : AppCompatActivity() {
                 val data= LineData(linedataset)
                 lc.xAxis.labelCount=6
                 linedataset.mode=LineDataSet.Mode.STEPPED
-                linedataset.formSize=10F
+                linedataset.lineWidth=LineWidth
 
                 lc.data=data
                 xAxis.valueFormatter=WeekFormatter()
                 lc.setVisibleXRange(1F,6.5F)
 
-                lc.data.setValueTextSize(24F)
+                lc.data.setValueTextSize(10F)
                 lc.invalidate()
 
 
